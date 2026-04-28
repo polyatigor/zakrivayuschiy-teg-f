@@ -3,8 +3,7 @@
 .logo-group,
 .main,
 .card,
-.card-text-block,
-#dialog-id {
+.card-text-block {
   display: grid;
 }
 
@@ -18,7 +17,7 @@
   padding: 6.25rem 0;
   align-items: start;
   justify-items: center;
-  font-family: var(--font-main, 'Inter Variable');
+  font-family: var(--font-main, 'Inter Variable', sans-serif);
   font-variation-settings: "wght" var(--weight-main, 410);
   background-image: var(--page-background);
   background-attachment: fixed;
@@ -84,16 +83,29 @@
 }
 
 .main {
-  gap: 3.125rem;
   color: var(--font-color, #000);
-  font-family: var(--font-main, 'Inter Variable');
+}
+
+
+#dialog-id[open] {
+  display: grid;
+  background-color: var(--background-color, #fff);
+  border: solid 2px var(--border-color, #000);
+  color: var(--font-color, #000);
+  max-width: 22.0625rem;
+  padding: 1.875rem;
+  gap: 1.875rem;
+}
+
+.main {
+  gap: 3.125rem;
 }
 
 .logo-group,
 .decorated-item,
 .button__text,
 .dialog-text {
-  font-family: var(--font-accent, 'Press Start 2P');
+  font-family: var(--font-accent, 'Press Start 2P', fantasy);
 }
 
 .image-block {
@@ -106,7 +118,6 @@
   top: 1.5625rem;
   right: 1.5625rem;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px #fff;
   text-shadow:
     -1px 0 #fff,
     0 1px #fff,
@@ -159,7 +170,6 @@
 }
 
 .card-text {
-  font-family: var(--font-main, 'Inter Variable');
   font-weight: var(--weight-main, 410);
   line-height: 1.3125rem;
   font-size: 1.125rem;
@@ -179,26 +189,26 @@
   place-items: center;
 }
 
-.card:nth-of-type(2) .image {
-  filter: grayscale(0.7) contrast(0.9);
+.filter-grayscale {
+  filter: grayscale(0.7);
 }
-.card:nth-of-type(3) .image {
-  filter: contrast(1) saturate(5);
+.filter-saturate {
+  filter: saturate(5);
 }
-.card:nth-of-type(4) .image {
+.filter-hue-rotate {
   filter: hue-rotate(36deg);
 }
-.card:nth-of-type(5) .image {
+.filter-contrast {
   filter: contrast(0.6);
 }
-.card:nth-of-type(6) .image {
-  filter: contrast(1);
+.filter-opacity {
+  filter: opacity(0.9);
 }
-.card:nth-of-type(7) .image {
-  filter: blur(17px);
+.filter-brightness {
+  filter: brightness(300%);
 }
-.card:nth-of-type(8) .image {
-  filter: hue-rotate(104deg) opacity(70%) blur(2px);
+.filter-mix {
+  filter: hue-rotate(104deg) opacity(70%) blur(1px);
 }
 
 .save-button {
@@ -241,19 +251,7 @@
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.8);
-} 
-
-#dialog-id {
-  max-width: 22.0625rem;
-  min-height: 11.9375rem;
-  padding: 1.75rem;
-  gap: 1.875rem;
-}
-
-dialog:not([open]) {
-  pointer-events: none;
-  opacity: 0;
+  background-color: rgb(0 0 0 / 0.75);
 } 
 
 .dialog-description svg {
@@ -312,7 +310,7 @@ dialog:not([open]) {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--font-color);
+  background-color: var(--font-color, #000);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
@@ -390,7 +388,7 @@ dialog:not([open]) {
   transition: 0.3s linear 0.06s;
 }
 
-.like-icon {
+.heart {
   transform-origin: center;
 }
 
@@ -429,14 +427,19 @@ dialog:not([open]) {
   .card__icon-button {
     height: 2.25rem;
   }
-  
-  #dialog-id {
-    padding-inline: 40px;
-    max-width: 341px;
+
+  #dialog-id[open] {
+    max-width: 21.1875rem;
+    padding-block: 1.625rem;
+    padding-inline: 2.4rem;
+  }
+
+  .dialog-description {
+    gap: 1.2rem;
   }
 
   #dialog-id .save-button {
-    padding-block: 3px 2px;
+    padding: 0.0625rem;
   }
 
   .save-button svg {
@@ -451,5 +454,6 @@ dialog:not([open]) {
     max-width: 19.125rem;
     padding-top: 0.8125rem;
     padding-bottom: 0.8125rem;
+    gap: 0.1875rem;
   }
 }

@@ -1,6 +1,6 @@
 :root {
-    --font-main: 'Inter Variable';
-    --font-accent: 'Press Start 2P';
+    --font-main: 'Inter Variable', sans-serif;
+    --font-accent: 'Press Start 2P', fantasy;
     --weight-main: 410;
     --weight-h2: 715;
     --weight-decorated-item: 400;
