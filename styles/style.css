@@ -84,6 +84,7 @@
 
 .main {
   color: var(--font-color, #000);
+  gap: 3.125rem;
 }
 
 
@@ -95,10 +96,6 @@
   max-width: 22.0625rem;
   padding: 1.875rem;
   gap: 1.875rem;
-}
-
-.main {
-  gap: 3.125rem;
 }
 
 .logo-group,
