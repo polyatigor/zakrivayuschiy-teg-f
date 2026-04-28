@@ -68,6 +68,7 @@
 
 .card {
   width: 100%;
+  grid-template-rows: min-content auto auto auto;
 }
 
 .main {
@@ -112,10 +113,6 @@
     text-stroke: 1px #fff;
     text-shadow: none;
   }
-}
-
-.card {
-  grid-template-rows: min-content auto auto auto;
 }
 
 .card-title {
@@ -173,13 +170,27 @@
   place-items: center;
 }
 
-.card:nth-of-type(2) .image { filter: grayscale(0.7) contrast(0.9); }
-.card:nth-of-type(3) .image { filter: contrast(1) saturate(5); }
-.card:nth-of-type(4) .image { filter: hue-rotate(36deg); }
-.card:nth-of-type(5) .image { filter: contrast(0.6); }
-.card:nth-of-type(6) .image { filter: contrast(1); }
-.card:nth-of-type(7) .image { filter: blur(17px); }
-.card:nth-of-type(8) .image { filter: hue-rotate(104deg) opacity(70%) blur(2px); }
+.card:nth-of-type(2) .image {
+  filter: grayscale(0.7) contrast(0.9);
+}
+.card:nth-of-type(3) .image {
+  filter: contrast(1) saturate(5);
+}
+.card:nth-of-type(4) .image {
+  filter: hue-rotate(36deg);
+}
+.card:nth-of-type(5) .image {
+  filter: contrast(0.6); 
+}
+.card:nth-of-type(6) .image {
+  filter: contrast(1);
+}
+.card:nth-of-type(7) .image {
+  filter: blur(17px);
+}
+.card:nth-of-type(8) .image {
+  filter: hue-rotate(104deg) opacity(70%) blur(2px);
+}
 
 .save-button {
   display: flex;  
@@ -276,9 +287,9 @@ dialog:not([open]) {
 }
 
 .card__icon-button svg {
-  width: 100%; 
-  height: auto; 
-  display: block; 
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .card__icon-button:focus-visible {
