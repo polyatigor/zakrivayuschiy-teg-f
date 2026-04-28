@@ -3,9 +3,11 @@
 .logo-group,
 .main,
 .card,
-.card-text-block {
+.card-text-block,
+#dialog-id {
   display: grid;
 }
+
 .page {
   gap: 6.125rem;
   width: 100%;
@@ -24,8 +26,7 @@
 }
 
 .header {
-  padding-block-start: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
-  padding-block-end: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
+  padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
 }
 
 .header,
@@ -55,6 +56,14 @@
   cursor: pointer;
 }
 
+.reaction-block,
+.save-button,
+.dialog-description,
+.card__like-button,
+.card__icon-button {
+  display: flex;
+}
+
 .card,
 .header,
 .button {
@@ -62,7 +71,10 @@
 }
 
 .card,
-.header {
+.header,
+.button:not(.card__icon-button),
+.card__like-button,
+.save-button {
   border: solid 2px var(--border-color, #000);
 }
 
@@ -76,7 +88,6 @@
   color: var(--font-color, #000);
   font-family: var(--font-main, 'Inter Variable');
 }
-
 
 .logo-group,
 .decorated-item,
@@ -155,7 +166,6 @@
 }
 
 .reaction-block {
-  display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -166,7 +176,6 @@
 
 .card__like-button,
 .save-button {
-  border: solid 2px var(--border-color, #000);
   place-items: center;
 }
 
@@ -180,7 +189,7 @@
   filter: hue-rotate(36deg);
 }
 .card:nth-of-type(5) .image {
-  filter: contrast(0.6); 
+  filter: contrast(0.6);
 }
 .card:nth-of-type(6) .image {
   filter: contrast(1);
@@ -193,7 +202,6 @@
 }
 
 .save-button {
-  display: flex;  
   justify-self: center;
   justify-content: center;
   min-height: 3.4375rem;
@@ -218,7 +226,6 @@
 }
 
 .dialog-description {
-  display: flex;
   gap: 1.25rem;
 }
 
@@ -238,7 +245,6 @@ dialog::backdrop {
 } 
 
 #dialog-id {
-  display: grid;
   max-width: 22.0625rem;
   min-height: 11.9375rem;
   padding: 1.75rem;
@@ -268,22 +274,20 @@ dialog:not([open]) {
   outline: none;
 }
 
+.card__like-button,
+.card__icon-button {
+  height: 2.375rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 .card__like-button {
   width: 7.9375rem;
-  height: 2.375rem;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .card__icon-button {
   width: 2.375rem;
-  height: 2.375rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 }
 
 .card__icon-button svg {
@@ -350,30 +354,39 @@ dialog:not([open]) {
   transition: 0.3s linear 0s;
 }
 
-.like-icon:hover .core {
+.like-icon:hover .core,
+.like-icon:hover .main-body {
   fill: var(--contour-svg, #000);
+}
+
+.like-icon:hover .core {
   transition: 0.3s linear 0s;
 }
 
 .like-icon:hover .main-body {
-  fill: var(--contour-svg, #000);
   transition: 0.3s linear 0.05s;
 }
 
 .like-icon:active .core,
-.like-icon.is-liked .core {
+.like-icon.is-liked .core,
+.like-icon:active .main-body,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
   fill: var(--animation-fill-color, #FF0000);
+}
+
+
+.like-icon:active .core,
+.like-icon.is-liked .core {
   transition: 0.3s linear 0s;
 }
 
 .like-icon:active .main-body,
 .like-icon.is-liked .main-body {
-  fill: var(--animation-fill-color, #FF0000);
   transition: 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--animation-fill-color, #FF0000);
   transition: 0.3s linear 0.06s;
 }
 
@@ -418,14 +431,12 @@ dialog:not([open]) {
   }
   
   #dialog-id {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-inline: 40px;
     max-width: 341px;
   }
 
   #dialog-id .save-button {
-    padding-top: 3px;
-    padding-bottom: 2px;
+    padding-block: 3px 2px;
   }
 
   .save-button svg {
